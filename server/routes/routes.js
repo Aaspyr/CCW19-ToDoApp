@@ -1,8 +1,8 @@
 const express = require('express');
-const list = require('../models/list')
-const task = require('../models/task');
-const user = require('../models/user');
-const error = require('../models/error');
+const list = require('list')
+const task = require('task');
+const user = require('user');
+const error = require('error');
 
 module.exports = function(app) {
   app.use(express.json());
@@ -11,4 +11,3 @@ module.exports = function(app) {
   app.use('/api/users', user);
   app.use(error);
 }
-//dupa
