@@ -1,10 +1,23 @@
-const {list, validate} = require('../models/list'); //będzie supi jak Olcia zrobi <3
+const {List, validate} = require('../models/list'); //będzie supi jak Olcia zrobi <3
 const _ = require('lodash');
 const express = require('express');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-  const list = await List.find().sort('name');
+  const lists = await List.find().sort('name');
+  res.send(lists);
+});
+
+router.get('/:id', async (req, res) => {
+  const { error } = validate(req.body); 
+  if (error) return res.status(400).send(error.details[0].message);
+
+  const list = await List.findByIdAndUpdate(req.params.id, { name: req.body.name }, {
+    new: true
+  });
+
+  if (!list) return res.status(404).send('The list with the given ID was not found.');
+  
   res.send(list);
 });
 
