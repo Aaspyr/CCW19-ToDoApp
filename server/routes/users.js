@@ -25,4 +25,12 @@ router.post('/', async (req, res) => {
   res.header('x-auth-token', token).send(_.pick(user, ['_id', 'name', 'email']));
 });
 
+router.delete('/:id', [auth, admin, validateObjectId], async (req, res) => {
+  const user = await User.findByIdAndRemove(req.params.id);
+
+  if (!user) return res.status(404).send('The user with the given ID was not found.');
+
+  res.send(user);
+});
+
 module.exports = router; 
