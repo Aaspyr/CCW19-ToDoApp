@@ -1,4 +1,4 @@
-const {task, validate} = require('../models/task'); //będzie supi jak Olcia zrobi <3
+const {Task, validate} = require('../models/task'); //będzie supi jak Olcia zrobi <3
 const _ = require('lodash');
 const express = require('express');
 const router = express.Router();
