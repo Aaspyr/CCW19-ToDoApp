@@ -1,3 +1,6 @@
+//const auth = require('auth') - funkcja autentykujaca uzytkownika 
+//const admin = require('amin') - funckcja sprawdzajaca czy uzytkownik jest adminem
+
 const bcrypt = require('bcrypt');
 const _ = require('lodash');
 const {User, validate} = require('../models/user');
@@ -25,7 +28,7 @@ router.post('/', async (req, res) => {
   res.header('x-auth-token', token).send(_.pick(user, ['_id', 'name', 'email']));
 });
 
-router.delete('/:id', [auth, admin, validateObjectId], async (req, res) => {
+router.delete('/:id', [auth, admin], async (req, res) => {
   const user = await User.findByIdAndRemove(req.params.id);
 
   if (!user) return res.status(404).send('The user with the given ID was not found.');
