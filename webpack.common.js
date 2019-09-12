@@ -3,8 +3,8 @@ var HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: {
-    client: "../client/index.js",
-    server: "server.js"
+    client: path.resolve(__dirname,'client/index.js'),
+    server: path.resolve(__dirname, 'server/app.js')
   },
   module: {
     rules: [
