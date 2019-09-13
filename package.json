@@ -20,6 +20,10 @@
   },
   "homepage": "https://github.com/Aaspyr/CCW19-ToDoApp#readme",
   "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^2.0.0",
     "css-loader": "^2.1.0",
     "file-loader": "^3.0.1",
