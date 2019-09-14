@@ -1,7 +1,6 @@
 const Task = require('../models/task'); 
 const User = require('../models/user');
 const List = require('../models/list');
-const _ = require('lodash');
 const express = require('express');
 const router = express.Router();
 
