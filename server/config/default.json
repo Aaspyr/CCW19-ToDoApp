@@ -1,0 +1,4 @@
+// TODO zmienić na zmienną środowiskową - to nie powinno być w repo
+{
+    "jwtPrivateKey": "helloNodeJS"
+}
