@@ -14,7 +14,7 @@
   "dependencies": {
     "bcrypt": "^3.0.6",
     "express": "^4.17.1",
-    "winston": "^3.2.1"
-
+    "winston": "^3.2.1", 
+    "cors": "^2.8.5"
   }
 }
