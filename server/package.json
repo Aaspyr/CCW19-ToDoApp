@@ -1,20 +1,24 @@
 {
-  "name": "server",
+  "name": "CCW19-ToDoApp",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aaspyr/CCW19-ToDoApp.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^3.0.6",
     "express": "^4.17.1",
-    "winston": "^3.2.1", 
-    "cors": "^2.8.5"
+    "winston": "^3.2.1",
+    "cors": "^2.8.5",
+    "mongoose": "^5.7.1"
   }
 }
