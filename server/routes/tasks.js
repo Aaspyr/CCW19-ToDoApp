@@ -34,7 +34,7 @@ router.post('/', async (req, res) => {
   const user = await User.findById(req.body.userID);
   if(!user) return res.status(400).send('The user with the given ID must exist to add a task.');
 
-  const task = new Task({
+  let task = new Task({
     userID: req.body.userID,
     nameID: req.body.nameID,
     list: req.body.list,
@@ -50,7 +50,8 @@ router.post('/', async (req, res) => {
 });
 
 router.put('/:id', async (req, res) => {
-  const task = await Task.findById(req.params.id);
+  
+  let task = await Task.findById(req.params.id);
   if (!task) return res.status(404).send('The task with the given ID was not found.');
 
   const list = await List.findById(req.body.list);
@@ -60,7 +61,7 @@ router.put('/:id', async (req, res) => {
   if(!user) return res.status(400).send('The user with the given ID must exist to add a task.');
 
 
-  const task = new Task({
+  task = new Task({
     userID: req.body.userID,
     nameID: req.body.nameID,
     list: req.body.list,
@@ -82,3 +83,5 @@ router.delete('/:id', async (req, res) => {
 
   res.send(task);
 });
+
+module.exports = router; 
