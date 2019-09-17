@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const routes = require('./routes')(app);
+const routes = require('./routes/routes')(app);
 
 mongoose.connect(config.db, {
     useNewUrlParser: true
