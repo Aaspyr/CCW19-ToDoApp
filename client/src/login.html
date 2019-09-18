@@ -15,23 +15,37 @@
 
 <body>
   
+  <div class="wrapper_task">
   <div class="heading">
-    <img class="heading__logo" src="img/paper-plane.svg" alt="logo">
-    <div class="heading__name"></div>
-    <div class="heading__welcome"></div>
-    <div class="heading__welcome"></div>
-    <button class="heading__logOut"></button>
+    <div class="heading__left">
+    <a href="index.html">
+      <img class="heading__logo" src="img/paper-plane.svg" alt="logo">
+    </a>
+    <div class="heading__name">WHAT TO DO</div>
+  </div>
+  <div class="heading__right">
+    <div class="heading__welcome">Cześć Ola!</div>
+    <button class="heading__logOut">wyloguj</button>
+  </div>
   </div>
 
   <div class="navbar">
-    <div class="navbar__element">dziś</div>
-    <div class="navbar__element">szkoła<button class="navbar__element--bin">
+    <div class="navbar__element active">
+      <p>dziś</p>
+    </div>
+    <div class="navbar__element">
+      <p>szkoła</p>
+      <button class="navbar__element--bin">
       <img src="img/garbage.svg" alt=""></button>
     </div>
-    <div class="navbar__element">praca<button class="navbar__element--bin">
+    <div class="navbar__element">
+      <p>praca</p>
+      <button class="navbar__element--bin">
         <img src="img/garbage.svg" alt=""></button>
     </div>
-    <div class="navbar__element">dom<button class="navbar__element--bin">
+    <div class="navbar__element">
+      <p>dom</p>
+      <button class="navbar__element--bin">
         <img src="img/garbage.svg" alt=""></button>
     </div>
     <button class="navbar__button">+</button>
@@ -41,45 +55,46 @@
 
     <div class="undoneContainer">
 
-      <div class="undoneContainer__listHeader">Do zrobienia</div>
+      <div class="undoneContainer__listHeader header">Do zrobienia</div>
 
       <ul class="undoneContainer__taskList">
 
         <li class="undoneContainer__taskList--element">
           <p class="undoneContainer__taskList--element title">Title of task</p>
           <p class="undonelistContainer__taskList--element info">data</p>
-          <button class="undoneContainer__taskList--edit"><img src="#" alt=""></button>
-          <button class="undoneContainer__taskList--done"><img src="#" alt=""></button>
+          <button class="undoneContainer__taskList--edit"><img src=img/edit.svg alt=""></button>
+          <button class="undoneContainer__taskList--done"><img src=img/tick.svg alt=""></button>
         </li>
 
         <li class="undoneContainer__taskList--element">
           <p class="undoneContainer__taskList--element title">Title of task</p>
           <p class="undoneContainer__taskList--element info">data</p>
-          <button class="undoneContainer__taskList--edit"><img src="#" alt=""></button>
-          <button class="undoneContainer__taskList--done"><img src="#" alt=""></button>
+          <button class="undoneContainer__taskList--edit"><img src=img/edit.svg alt=""></button>
+          <button class="undoneContainer__taskList--done"><img src=img/tick.svg alt=""></button>
         </li>
       </ul>
-      <button class="main__list--addTask"></button>
+      <button class="main__list--addTask">+</button>
     </div>
 
     <div class="doneCointainer">
-      <div class="doneCointainer__header">Co już zrobiłeś</div>
+      <div class="doneCointainer__header header">Co już zrobiłeś</div>
 
       <ul class="doneContainer__taskList">
   
         <li class="doneContainer__taskList--element">
           <p class="doneContainer__taskList--element title">Title of task</p>
           <p class="doneContainer__taskList--element info">data</p>
-          <button class="doneContainer__taskList--bin"><img src="#" alt=""></button>
+          <button class="doneContainer__taskList--bin"><img src="img/garbage.svg" alt=""></button>
         </li>
   
         <li class="doneContainer__taskList--element">
           <p class="doneContainer__taskList--element title">Title of task</p>
           <p class="doneContainer__taskList--element info">data</p>
-          <button class="doneContainer__taskList--bin"><img src="#" alt=""></button>
+          <button class="doneContainer__taskList--bin"><img src="img/garbage.svg" alt=""></button>
         </li>
       </ul>
     </div>
   </div>
+</div>
 </body>
 </html>

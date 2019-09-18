@@ -1,5 +1,119 @@
+.wrapper_task{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
 .heading{
+    height: 8rem;
+    display: flex;
+    background-color: $color-primary;
+    color: $color-pink;
+    text-transform: uppercase;
+    font-size: 2rem;
+    align-items: center;
+    justify-content: space-between;
+    >*{
+        display: flex;
+        align-items: center;
+    }
     &__logo{
-        max-height: 40rem;
+        height: 8rem;
+    }
+    &__name{
+        margin: 2rem 0 0 2rem;
+    }
+    &__right{
+        height: 100%;
+    }
+    &__logOut{
+        background-color: $color-pink;
+        color: $color-primary;
+        margin-left: 2rem;
+        align-self: stretch;
+        height: 100%;
+        text-transform: uppercase;
+        padding: 1rem 3rem;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 2rem;
+        border: none;
     }
 }
+
+.navbar{
+    display: flex;
+    align-items: center;
+    height: 6rem;
+    border: 2px solid $color-primary;
+    button{
+        background-color: transparent;
+        border: none;
+    }
+    &__element{
+        position: relative;
+        padding: 0 5rem;
+        border: 2px solid $color-primary;
+        height: 100%;
+        margin-left: -2px;
+        text-transform: uppercase;
+        color: $color-primary;
+        font-size: 2rem;
+        text-shadow: 0px 1px 2px rgba(0,0,0,0.3);
+        font-size: 700;
+        p{
+          line-height: 6rem;
+        }
+        img{
+            height: 2rem;
+            position: absolute;
+            right: 0.5rem;
+            bottom: 0.5rem;
+        }
+
+    }
+    .active{
+        background-color: $color-primary;
+        color: $color-pink;
+    }
+}
+
+.header{
+    background-color: $color-light;
+    height: 6rem;
+    color: $color-white;
+    text-transform: uppercase;
+    font-size: 2rem;
+    line-height: 6rem;
+    text-align: center;
+}
+
+.Main{
+    display: flex;
+    flex:1;
+}
+.undoneContainer{
+    flex: 3;
+    &__tasklist{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.doneCointainer{
+    flex: 1;
+    border: 2px solid $color-primary;
+    height: 100%;
+    margin-top: -2px;
+}
+
+[class$="__taskList--element"] {
+background-color: $color-light;
+margin: 2rem;
+max-width: 30rem;
+color: $color-white;
+}
+
+[class$="__taskList"] {
+    list-style: none;
+    }
