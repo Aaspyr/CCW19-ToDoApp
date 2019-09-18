@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 
 module.exports = connectToDatabase = () => {
-  // Podmienić link na prawidłowy z uzupełnionymi polami do właściwej bazy danych
-    const db = 'mongodb+srv://(nazwaUzytkownika):(haslo)@(cluster).mongodb.net/(nazwaBazyDanych)?retryWrites=true&w=majority'
+  const db = 'mongodb+srv://CCW19-ToDoApp:qJtLUU6bxG@cluster0-nvlyd.mongodb.net/test?retryWrites=true&w=majority';
+  
   mongoose
     .connect(
       db,
