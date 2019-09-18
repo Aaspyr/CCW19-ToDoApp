@@ -1,0 +1,68 @@
+.registerBox {
+    display:none
+}
+
+.registerBox__register{position: absolute;
+    width: 326px;
+    height: 52.16px;
+    
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 48px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #FFBADB;
+    border: 3px solid #FFBADB;
+    box-sizing: border-box;}
+
+.registerBox__register .nick{
+    left: 244px;
+    top: 755.32px;
+}
+
+.registerBox__register .imie {
+    left: 243px;
+    top: 648.99px;
+}
+
+.registerBox__register .emial {
+    left: 243px;
+    top: 861.65px;
+}
+
+.registerBox__register .password {
+    left: 854px;
+    top: 648.99px;
+}
+
+.registerBox__register .repeatpassword {
+    left: 787px;
+    top: 755.32px;
+}
+
+.registerBox__loging--button{
+    position: absolute;
+    width: 326px;
+    height: 52.16px;
+    left: 853px;
+    top: 861.65px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 48px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #6D55FF;
+    background: #FFBADB;
+    border: 3px solid #FFBADB;
+    box-sizing: border-box;
+
+}

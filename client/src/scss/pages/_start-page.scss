@@ -1,0 +1,90 @@
+//logo i nazwa apki, tutaj opisane i w pozostałych plikach juz nie ma
+.logoBox{
+    background-color: #6D55FF;
+    position: absolute;
+    width: 692px;
+    height: 560px;
+    left: 374px;
+    top: 3px;
+}
+
+.logoBox__image{
+    position: absolute;
+    width: 422.39px;
+    height: 404.6px;
+    left: 613.99px;
+    top: 3px;
+
+    background: url(icons/paper-plane.png);
+    transform: rotate(25deg);
+}
+
+.logoBox__title{
+    position: absolute;
+    width: 692px;
+    height: 84px;
+    left: 374px;
+    top: 479px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 70px;
+    line-height: 84px;
+
+    text-align: center;
+    font-feature-settings: 'ordn' on;
+
+    color: #FFBADB;
+}
+
+//i tu juz stylowanie formularza domyślnie ustawione na wyświetlanie ekranu startowego 
+.startBox{
+    display:block;
+    position: absolute;
+    width: 599px;
+    height: 320px;
+    left: 420px;
+    top: 608px;
+}
+
+.startBox__logButton{
+    position: absolute;
+    width: 455px;
+    height: 107px;
+    left: 493px;
+    top: 821px;
+
+    background: #6D55FF;
+    border: 3px solid #FFBADB;
+    box-sizing: border-box;}
+
+.startBox__or{
+    position: absolute;
+    width: 599px;
+    height: 72px;
+    left: 420px;
+    top: 733px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 58px;
+    text-align: center;
+
+    color: #FFBADB;
+
+}
+
+.startBox__registerButton{
+    position: absolute;
+    width: 455px;
+    height: 107px;
+    left: 493px;
+    top: 821px;
+
+    background: #6D55FF;
+    border: 3px solid #FFBADB;
+    box-sizing: border-box;
+}

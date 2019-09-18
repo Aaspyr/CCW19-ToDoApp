@@ -1,3 +1,74 @@
-body{
-    background-color: $color-primary;
+.logBox {
+    display:none
+}
+
+.logBox__loging{
+    position: absolute;
+    width: 600px;
+    height: 326px;
+    left: 420px;
+    top: 607px;
+}
+.logBox__loging--nick{
+    position: absolute;
+    width: 302px;
+    height: 44px;
+    left: 558px;
+    top: 630px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 58px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFBADB;
+    background: #6D55FF;
+    border: 3px solid #FFBADB;
+    box-sizing: border-box;
+}
+
+.logBox__loging--password{
+    position: absolute;
+    width: 302px;
+    height: 44px;
+    left: 558px;
+    top: 755px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 58px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFBADB;
+    background: #6D55FF;
+    border: 3px solid #FFBADB;
+    box-sizing: border-box;
+}
+
+.logBox__loging--button{
+    position: absolute;
+    width: 395px;
+    height: 68px;
+    left: 522px;
+    top: 865px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 58px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFBADB;
+    border: 1px solid #FFBADB;
 }

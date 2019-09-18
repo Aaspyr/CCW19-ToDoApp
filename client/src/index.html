@@ -14,56 +14,46 @@
 </head>
 
 <body>
-    <!---start-->
-    <section class="container">
-        <div class="mainBox">
-            <div class="mainBox__logo">
-                <img class="mainBox__logo--image" src="#logo" alt="logo What To Do">
-                <div class="mainBox__logo--title">What To Do</div>
-            </div>
+    <!---logo-->
+    <div class="logoBox">
+            <div class="logoBox__image"></div>
+            <div class="logoBox__title">What To Do</div>
+    </div>
 
-            <div class="mainBox__start">
-                <button class="mainBox__start--logButton">Zaloguj się</button>
-                <label class="mainBox__start--or">LUB</label>
-                <button class="mainBox__start--registerButton">Załóż konto</button>
-            </div>
+    <div class="optionContainer">
+
+        <!---start-->
+        <div class="startBox">
+            <button class="startBox__logButton">Zaloguj się</button>
+            <label class="startBox__or">LUB</label>
+            <button class="startBox__registerButton">Załóż konto</button>
         </div>
-    </section>
 
-    <!---loging-->
-    <section class="container">
-        <div class="mainBox">
-            <div class="mainBox__logo">
-                <img class="mainBox__logo--image" src="#logo" alt="logo What To Do">
-                <div class="mainBox__logo--title">What To Do</div>
-            </div>
 
-            <form class="mainBox__loging">
-                <input class="mainBox__loging--nick" placeholder="nick"></input>
-                <input class="mainBox__loging--password" placeholder="hasło"></input>
-                <button class="mainBox__loging--button">Zaloguj</button>
+        <!---loging-->
+
+        <div class="logBox">
+            <form class="logBox__loging">
+                <input class="logBox__loging--nick" placeholder="nick"></input>
+                <input class="logBox__loging--password" placeholder="hasło"></input>
+                <button class="logBox__loging--button">Zaloguj</button>
             </form>
         </div>
-    </section>
 
-    <!---register-->
-    <section class="container">
-        <div class="mainBox">
-            <div class="mainBox__logo">
-                <img class="mainBox__logo--image" src="#logo" alt="logo What To Do">
-                <div class="mainBox__logo--title">What To Do</div>
-            </div>
-    
-            <form class="mainBox__register">
-                <input class="mainBox__register--nick" placeholder="nick"></input>
-                <input class="mainBox__register--imie" placeholder="imie"></input>
-                <input class="mainBox__register--emial" placeholder="email"></input>
-                <input class="mainBox__register--password" placeholder="hasło"></input>
-                <input class="mainBox__register--repeatpassword" placeholder="powtórz hasło"></input>
-                <button class="mainBox__loging--button">Załóż konto</button>
+
+        <!---register-->
+        <div class="registerBox">
+            <form class="registerBox__register">
+                <input class="registerBox__register nick" placeholder="nick"></input>
+                <input class="registerBox__register imie" placeholder="imie"></input>
+                <input class="registerBox__register emial" placeholder="email"></input>
+                <input class="registerBox__register password" placeholder="hasło"></input>
+                <input class="registerBox__register repeatpassword" placeholder="powtórz hasło"></input>
+                <button class="registerBox__loging--button">TU JESTEM !!</button>
             </form>
         </div>
-    </section>
+    </div>
 
+    <script type="text/javascript" src="./index.js"></script>
 </body>
 </html>
