@@ -1,32 +1,33 @@
-const List = require('../models/list'); 
-const User = require('../models/user');
+const {List, validate} = require('../models/list'); 
+const {User} = require('../models/user');
 const express = require('express');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-  const lists = await List.find().sort('createdAt');
+  const lists = await List.find()
+    .populate('userId', 'name _id')
+    .sort('createdAt');
   res.send(lists);
 });
 
 router.get('/:id', async (req, res) => {
-  const list = await List.findById(req.params.id);
-  if (!list) return res.status(404).send('The list with the given ID was not found.');
+  const list = await List.find()
+    .or([{_id: req.params.id}, {userId: req.params.id}])
+    .populate('userId', 'name _id');
+  if (list.length === 0) return res.status(404).send('The list with the given ID was not found.');
   
   res.send(list);
 });
 
-router.get('/:userID', async (req, res) => {
-  const lists = await List.find({ userID: req.params.userID});
-  res.send(lists);
-})
-
 router.post('/', async (req, res) => {
-  
-  const user = await User.findById(req.body.userID);
-  if(!user) return res.status(400).send('The user must exist in order to add a list');
+  const user = await User.findById(req.body.userId);
+  if(!user) return res.status(400).send('The user with the given ID must exist to add a task.');
 
+  const { error } = validate(req.body); 
+  if (error) return res.status(400).send(error.details[0].message);
+  
   const list = new List({
-    userID: req.body.userID, 
+    userId: req.body.userId, 
     name: req.body.name,
     createdAt: req.body.createdAt,
     color: req.body.color,
@@ -42,24 +43,21 @@ router.post('/', async (req, res) => {
 });
 
 router.put('/:id', async (req, res) => {
-  let list = await List.findById(req.params.id);
-  if (!list) return res.status(404).send('The list with the given ID was not found.');
+  const user = await User.findById(req.body.userId);
+  if(!user) return res.status(400).send('The user with the given ID must exist to add a task.');
 
-  const user = await User.findById(req.body.userID);
-  if(!user) return res.status(400).send('The user must exist in order to add a list');
+  const { error } = validate(req.body); 
+  if (error) return res.status(400).send(error.details[0].message);
 
-  list = new List({
-    userID: req.body.userID, 
+  const list = await List.findByIdAndUpdate(req.params.id, {
+    userId: req.body.userId, 
     name: req.body.name,
     createdAt: req.body.createdAt,
     color: req.body.color,
-    tasks: req.body.tasks
+    tasks: req.body.tasks,
   });
-  try {
-    await list.save();
-  } catch(err) {
-    res.status(400).send(err.message);
-  }
+  
+  if (!list) return res.status(404).send('The list with the given ID was not found.');
   
   res.send(list);
 });
