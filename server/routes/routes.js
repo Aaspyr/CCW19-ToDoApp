@@ -7,8 +7,8 @@ const error = require('./error');
 
 module.exports = function(app) {
   app.use(express.json());
-  app.use('/api/list', list);
-  app.use('/api/task', task);
+  app.use('/api/lists', list);
+  app.use('/api/tasks', task);
   app.use('/api/users', user);
   app.use('/api/auth', auth);
   app.use(error);
