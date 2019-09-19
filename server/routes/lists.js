@@ -42,13 +42,13 @@ router.post('/', async (req, res) => {
 });
 
 router.put('/:id', async (req, res) => {
-  const list = await List.findById(req.params.id);
+  let list = await List.findById(req.params.id);
   if (!list) return res.status(404).send('The list with the given ID was not found.');
 
   const user = await User.findById(req.body.userID);
   if(!user) return res.status(400).send('The user must exist in order to add a list');
 
-  const list = new List({
+  list = new List({
     userID: req.body.userID, 
     name: req.body.name,
     createdAt: req.body.createdAt,
@@ -71,3 +71,5 @@ router.delete('/:id', async (req, res) => {
 
   res.send(list);
 });
+
+module.exports = router; 

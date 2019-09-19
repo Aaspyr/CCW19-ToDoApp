@@ -1,8 +1,8 @@
 const express = require('express');
-const list = require('list')
-const task = require('task');
-const user = require('user');
-const error = require('error');
+const list = require('./lists')
+const task = require('./tasks');
+const user = require('./users');
+const error = require('./error');
 
 module.exports = function(app) {
   app.use(express.json());
