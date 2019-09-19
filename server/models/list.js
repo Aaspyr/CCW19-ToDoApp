@@ -1,9 +1,11 @@
+const Joi = require('joi');
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 const ListSchema = new mongoose.Schema({
     userId: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectID,
+        ref: 'User',
         required: true
     },
     name: {
@@ -20,4 +22,14 @@ const ListSchema = new mongoose.Schema({
     tasks: []
 });
 
-module.exports = mongoose.model("List", ListSchema);
+function validateList(list) {
+    const schema = {
+      userId: Joi.required(),
+      name: Joi.string().min(1).max(100).required()
+    };
+  
+    return Joi.validate(list, schema);
+}
+  
+module.exports.validate = validateList;
+module.exports.List = mongoose.model("List", ListSchema);
