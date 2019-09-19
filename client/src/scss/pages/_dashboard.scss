@@ -94,10 +94,16 @@
 }
 .undoneContainer{
     flex: 3;
-    &__tasklist{
+    /*&__tasklist{
         display: flex;
         flex-direction: column;
-    }
+        width: 50%;
+    }*/
+}
+
+.undoneContainer__taskList{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .doneCointainer{
@@ -117,3 +123,9 @@ color: $color-white;
 [class$="__taskList"] {
     list-style: none;
     }
+
+#buttonAddTask{
+    background-color: transparent;
+    text-align: center;
+    align-items: center;
+}
