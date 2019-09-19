@@ -1,16 +1,26 @@
 .logBox {
-    display:none
+    display:none;
+    flex-direction: column;
+    text-align: center;
+    > *{
+        margin: 1rem;
+    }
+    &__or{
+        color: $color-pink;
+    }
 }
 
 .logBox__loging{
-    position: absolute;
+    display:none;
+    position:flex;
     width: 600px;
     height: 326px;
     left: 420px;
     top: 607px;
 }
 .logBox__loging--nick{
-    position: absolute;
+    display:none;
+    position: flex;
     width: 302px;
     height: 44px;
     left: 558px;
@@ -32,7 +42,8 @@
 }
 
 .logBox__loging--password{
-    position: absolute;
+    display:none;
+    position: flex;
     width: 302px;
     height: 44px;
     left: 558px;
@@ -54,7 +65,8 @@
 }
 
 .logBox__loging--button{
-    position: absolute;
+    display:none;
+    position: flex;
     width: 395px;
     height: 68px;
     left: 522px;

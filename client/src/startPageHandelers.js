@@ -1,19 +1,21 @@
-const startForm = document.querySelector('startBox')
-const logForm = document.querySelector('logBox')
-const registerForm = document.querySelector('registerBox')
+const startForm = document.getElementsByClassName('startBox')
+const logForm = document.getElementsByClassName('logBox')
+const registerForm = document.getElementsByClassName('registerBox')
 
-const logButton = document.querySelector("startBox__logButton")
-const registerButton = document.querySelector("startBox__registerButton")
+const logButton = document.getElementsByClassName("startBox__logButton button_login")
+const registerButton = document.getElementsByClassName("startBox__registerButton button_login")
 
 function switchScreen (on, off1, off2) {
-    if (on.style.display === "none") {
-        on.style.display = "block";
-        off1.style.display = "none";
-        off2.style.display = "none";
-    } else {
-        on.style.display = "none";
+    for (let i =0; i<on.length; i+=1){
+        if (on[i].style.display === "none") {
+            on[i].style.display = "flex";
+            off1[i].style.display = "none";
+            off2[i].style.display = "none";
+        }else{
+            on[i].style.display === "flex"
+        }
     }
-  }
+}
 
-logButton.addEventListener('click', switchScreen(logForm, startForm, registerForm))
-registerButton.addEventListener('click', switchScreen(registerForm, startForm, logForm))
+logButton.onclick = switchScreen(logForm, startForm, registerForm)
+registerButton.onclick = switchScreen(registerForm, startForm, logForm)

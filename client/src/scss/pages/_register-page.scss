@@ -1,8 +1,17 @@
 .registerBox {
-    display:none
+    display:none;
+    flex-direction: column;
+    text-align: center;
+    > *{
+        margin: 1rem;
+    }
+    &__or{
+        color: $color-pink;
+    }
 }
 
-.registerBox__register{position: absolute;
+
+.registerBox__register{position: flex;
     width: 326px;
     height: 52.16px;
     
@@ -45,7 +54,7 @@
 }
 
 .registerBox__loging--button{
-    position: absolute;
+    position: flex;
     width: 326px;
     height: 52.16px;
     left: 853px;
