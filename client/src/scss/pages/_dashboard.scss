@@ -115,8 +115,7 @@
 
 [class$="__taskList--element"] {
 background-color: $color-light;
-margin: 2rem;
-max-width: 30rem;
+margin: 5%;
 color: $color-white;
 }
 
@@ -127,5 +126,4 @@ color: $color-white;
 #buttonAddTask{
     background-color: transparent;
     text-align: center;
-    align-items: center;
 }

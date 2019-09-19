@@ -1,0 +1,15 @@
+[class*="__taskList"]>li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5%;
+}
+
+[class*="__taskList"]>li>div:first-child {
+    display: flex;
+    flex-direction: column;
+    flex: 4;
+}
+[class*="__taskList"]>li>div:last-child {
+    flex: 2;
+}
