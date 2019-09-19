@@ -91,14 +91,10 @@
 .Main{
     display: flex;
     flex:1;
+    height: calc(100% - 20rem);
 }
 .undoneContainer{
     flex: 3;
-    /*&__tasklist{
-        display: flex;
-        flex-direction: column;
-        width: 50%;
-    }*/
 }
 
 .undoneContainer__taskList{
@@ -113,15 +109,32 @@
     margin-top: -2px;
 }
 
+<<<<<<< HEAD
 [class$="__taskList--element"] {
 background-color: $color-light;
 margin: 5%;
 color: $color-white;
 }
+=======
+>>>>>>> 324978952bb4403a67959e49914a8660baa1798c
 
 [class$="__taskList"] {
     list-style: none;
-    }
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+[class$="__taskList--element"] {
+    background-color: $color-light;
+    margin: 2rem;
+    width: 30rem;
+    color: $color-white;
+    height: 20rem;
+    padding: 1rem;
+}
 
 #buttonAddTask{
     background-color: transparent;
