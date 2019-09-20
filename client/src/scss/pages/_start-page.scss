@@ -14,7 +14,8 @@
 
 .logoBox {
     &__image img{
-        max-height: 40rem;
+        max-height: 35rem;
+        margin-bottom: -4rem;
     }
     &__title{
         color: $color-pink;
@@ -22,7 +23,7 @@
         text-transform: uppercase;
         text-align: center;
         letter-spacing: 1rem;
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
     }
 }
 
@@ -36,7 +37,8 @@
     flex-direction: column;
     text-align: center;
     > *{
-        margin: 1rem;
+        margin-bottom: 0.7rem;
+        margin-top: 0.7rem;
     }
     &__or{
         color: $color-pink;
