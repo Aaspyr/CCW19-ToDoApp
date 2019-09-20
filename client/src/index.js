@@ -1,6 +1,7 @@
 import "./scss/main.scss"
 import axios from 'axios'
 
+const URL = 'http://localhost:3000/api';
 
 //adding new list//
 const addButton = document.querySelector('navbar__createNewListButton');
@@ -13,7 +14,7 @@ console.log(confirmButton)
 
 confirmButton.addEventListener('click', async (e) => {
 
-    const lists = await axios.get('http://localhost:3000/api/lists')
+    const lists = await axios.get(`${URL}/lists`)
     console.log(lists)
 })
 
@@ -39,10 +40,9 @@ confirmButton.addEventListener('click', async (e) => {
 
 
 //getting tasks
-const URL = '*';
 const getTasks = async () => {
     try {
-        const res = await axios.get('${*}/tasks');
+        const res = await axios.get(`${URL}/tasks`);
         
         const tasks = res.data;
 
