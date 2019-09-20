@@ -1,5 +1,4 @@
 import "./scss/main.scss"
-import "./startPageHandelers"
 import axios from 'axios'
 
 

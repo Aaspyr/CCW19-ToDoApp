@@ -1,3 +1,5 @@
+import "./scss/main.scss"
+
 const startForm = document.getElementsByClassName('startBox')
 const logForm = document.getElementsByClassName('logBox')
 const registerForm = document.getElementsByClassName('registerBox')
