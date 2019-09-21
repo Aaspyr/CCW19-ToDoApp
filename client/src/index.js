@@ -2,6 +2,55 @@ import "./scss/main.scss"
 import axios from 'axios'
 import {addTaskToDone} from './js/task-done';
 
+<<<<<<< HEAD
+//-----------------------------------------------------------------------------------------------------------------
+//  WYŚWIETLANIE LISTY Z LISTAMI
+
+// const addButton = document.querySelector('navbar__createNewListButton');
+// const confirmButton = document.querySelector('.navbar__button');
+// const listNameInput = document.querySelector('addNewListWindow__form--input')
+
+//console.log(confirmButton)
+// confirmButton.addEventListener('click', async (e) => {
+
+//     const lists = await axios.get('http://localhost:3000/api/lists')
+//     console.log(lists)
+// })
+
+//----------------------------------------------------------------------------------------------------------------
+//DODAWANIE NOWEJ LISTY
+
+// const addsButton = document.getElementById('addList');
+// const confirmsButton = document.querySelector('addNewListWindow__form--confirmButton');
+// const listNamesInput = document.querySelector('addNewListWindow__form--input')
+// const addNewList = document.getElementsByClassName('addNewListWindow')
+// const newListBackground = document.getElementsByClassName('newListBackground');
+
+// addsButton.onclick = function() {
+//     for (let i =0; i<addNewList.length; i+=1){
+//         addNewList[i].style.display = "block";
+//         newListBackground[0].style.background = 'rgba(255,255,255, 0.5)';
+        
+//     }
+// };
+
+// confirmButton.addEventListener('click', function(e) {
+
+//     axios.post('/lists', {
+//         userID: '', 
+//         name: listNameInput.value,
+//         createdAt: new Date().getDate,
+//         color: '',
+//         tasks: []
+//     })
+//     .then(function (response) {
+//     console.log(response)
+//     })
+//     .catch(function (error) {
+//     console.log(error)
+//     })
+// })
+=======
 const URL = 'http://localhost:3000/api';
 
 let id1 = '5d82b4527f81363ec8162055';
@@ -70,7 +119,7 @@ const getLists = async () => {
         const id = '';
         const res = await axios.get(`${URL}/lists/${id}`);
         const lists = res.data;
-        //console.log(lists)
+        console.log(lists)
         return lists;
     } catch (e) {
         console.error(e);
@@ -89,11 +138,9 @@ const createLiList = item => {
     const btn2 = document.createElement('button');
 
     btn1.classList.add('undoneContainer__taskList--edit');
-    btn2.classList.add('undoneContainer__taskList--delete');
+    btn2.classList.add('undoneContainer__taskList--done');
     btn1.innerHTML ='<img src=imgs/edit.bec0d15fb6523885ea4206789406f447.svg alt="">';
-    btn2.innerHTML ='<img delete="true" src=imgs/garbage.e18b49a6a5015b0dea867f6a130f5848.svg alt="">';
-    
-    li.id = item._id;
+    btn2.innerHTML ='<img src=imgs/garbage.e18b49a6a5015b0dea867f6a130f5848.svg alt="">';
     
     p1.appendChild(document.createTextNode(item.name));
     p3.appendChild(document.createTextNode(item.tasks));
@@ -110,8 +157,6 @@ const createLiList = item => {
     } else {
         li.classList.add("undoneContainer__taskList--element");
     }
-    // Remove LI on click
-    li.onclick = async e => await removeList(e, li);
     return li;
 };
 
@@ -122,7 +167,7 @@ const addListsToDOM = lists => {
     if (Array.isArray(lists) && lists.length > 0) {
         lists.map(list => {
             if(list.done===true){
-                //console.log(list);
+                console.log(list);
                 done.appendChild(createLiList(list));
             } else {
                 undone.appendChild(createLiList(list));
@@ -165,8 +210,6 @@ const createLi = item => {
     btn1.innerHTML ='<img src=imgs/edit.bec0d15fb6523885ea4206789406f447.svg alt="">';
     btn2.innerHTML ='<img src=imgs/tick.905c9223597a4a23b316cc4fb6719763.svg alt="">';
     
-    li.id = item.id;
-    
     p1.appendChild(document.createTextNode(item.name));
     p2.appendChild(document.createTextNode(item.done));
 
@@ -190,7 +233,7 @@ const addTasksToDOM = tasks => {
     if (Array.isArray(tasks) && tasks.length > 0) {
         tasks.map(task => {
             if(task.done===true){
-                //console.log(task);
+                console.log(task);
                 done.appendChild(createLi(task));
             } else {
                 undone.appendChild(createLi(task));
@@ -206,25 +249,4 @@ const mainTask = async () => {
 };
 
 //mainTask ();
-
-// Delete list
-
-  const deleteList = async id => {
-    try {
-      const res = await axios.delete(`${URL}/lists/${id}`);
-      console.log(`Deleted list ID: `, id);
-  
-      return res.data;
-    } catch (e) {
-      console.error(e);
-    }
-  };
-
-  const removeList = async (e, li) => {
-
-    if(e.target.getAttribute('delete')=='true'){
-        e.target.parentElement.parentElement.parentElement.removeChild(li);
-        const id = li.id;
-    }
-    await deleteList(id);
-  };
+>>>>>>> develop
