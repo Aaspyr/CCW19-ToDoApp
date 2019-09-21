@@ -42,34 +42,20 @@ router.post('/', async (req, res) => {
   res.send(list);
 });
 
-// router.put('/:id', async (req, res) => {
-//   const user = await User.findById(req.body.userId);
-//   if(!user) return res.status(400).send('The user with the given ID must exist to add a task.');
-
-//   const { error } = validate(req.body); 
-//   if (error) return res.status(400).send(error.details[0].message);
-
-//   const list = await List.findByIdAndUpdate(req.params.id, {
-//     userId: req.body.userId, 
-//     name: req.body.name,
-//     createdAt: req.body.createdAt,
-//     color: req.body.color,
-//     tasks: req.body.tasks,
-//   });
-  
-//   if (!list) return res.status(404).send('The list with the given ID was not found.');
-  
-//   res.send(list);
-// });
-
 router.put('/:id', async (req, res) => {
+  const user = await User.findById(req.body.userId);
+  if(!user) return res.status(400).send('The user with the given ID must exist to add a task.');
 
-  const { error } = validateListUpdate(req.body); 
+  const { error } = validate(req.body); 
   if (error) return res.status(400).send(error.details[0].message);
 
   const list = await List.findByIdAndUpdate(req.params.id, {
-    ...req.body
-  }, {new:true});
+    userId: req.body.userId, 
+    name: req.body.name,
+    createdAt: req.body.createdAt,
+    color: req.body.color,
+    tasks: req.body.tasks,
+  });
   
   if (!list) return res.status(404).send('The list with the given ID was not found.');
   

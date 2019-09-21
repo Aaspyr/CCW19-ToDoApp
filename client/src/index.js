@@ -137,7 +137,7 @@ const createLiList = item => {
     const btn1 = document.createElement('button');
     const btn2 = document.createElement('button');
 
-    btn1.classList.add('undoneContainer__taskList--edit', 'edit-list');
+    btn1.classList.add('undoneContainer__taskList--edit', 'edit-task');
     btn2.classList.add('undoneContainer__taskList--delete');
     btn1.innerHTML ='<img src="src/img/edit.svg" alt="">';
     btn2.innerHTML ='<img delete="true" src="src/img/garbage.svg" alt="">';
@@ -178,12 +178,7 @@ const addListsToDOM = lists => {
         ul.appendChild(createLiList(lists));
     }
 
-    document.querySelectorAll('.edit-list').forEach(btn => btn.addEventListener('click', async (e) => {
-        const listId = e.currentTarget.parentNode.id;
-        const edit = await axios.put(`${URL}/lists/${listId}`, {name: "nowa nazwa"}); 
-        console.log(edit)
-    }));
-    
+    editTask("update possibilty 2")
 };
 
 const mainList = async () => {
@@ -255,6 +250,15 @@ const addTasksToDOM = tasks => {
 const mainTask = async () => {
     addTasksToDOM(await getTasks());
 };
+
+const editTask = (name) => {
+    document.querySelectorAll('.edit-task').forEach(btn => btn.addEventListener('click', async (e) => {
+        const taskId = e.currentTarget.parentNode.id;
+        const list = e.currentTarget.parentNode;
+        const edit = await axios.put(`${URL}/tasks/${taskId}`, {name}); 
+        list.children[0].innerText = edit.data.name;
+    }));
+}
 
 //mainTask ();
 

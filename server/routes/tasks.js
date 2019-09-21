@@ -1,4 +1,4 @@
-const {Task, validate} = require('../models/task'); 
+const {Task, validate, validateTaskUpdate} = require('../models/task'); 
 const {User} = require('../models/user');
 const {List} = require('../models/list');
 const express = require('express');
@@ -49,30 +49,44 @@ router.post('/', async (req, res) => {
   res.send(task);
 });
 
+// router.put('/:id', async (req, res) => {
+
+//   const { error } = validate(req.body); 
+//   if (error) return res.status(400).send(error.details[0].message);
+  
+//   const list = await List.findById(req.body.list);
+//   if(!list) return res.status(400).send('The list with the given ID must exist to add a task.');
+
+//   const user = await User.findById(req.body.userId);
+//   if(!user) return res.status(400).send('The user with the given ID must exist to add a task.');
+
+
+
+//   task = await Task.findByIdAndUpdate(req.params.id, {
+//     userId: req.body.userId,
+//     name: req.body.name,
+//     list: req.body.list,
+//     createdAt: req.body.createdAt,
+//     deadline: req.body.deadline,
+//     done: req.body.done
+//   });
+  
+//   if(!task) return res.status(404).send("Task with the given ID was not found.");
+
+//   res.send(task);
+// });
+
 router.put('/:id', async (req, res) => {
 
-  const { error } = validate(req.body); 
+  const { error } = validateTaskUpdate(req.body); 
   if (error) return res.status(400).send(error.details[0].message);
+
+  const task = await Task.findByIdAndUpdate(req.params.id, {
+    ...req.body
+  }, {new:true});
   
-  const list = await List.findById(req.body.list);
-  if(!list) return res.status(400).send('The list with the given ID must exist to add a task.');
-
-  const user = await User.findById(req.body.userId);
-  if(!user) return res.status(400).send('The user with the given ID must exist to add a task.');
-
-
-
-  task = await Task.findByIdAndUpdate(req.params.id, {
-    userId: req.body.userId,
-    name: req.body.name,
-    list: req.body.list,
-    createdAt: req.body.createdAt,
-    deadline: req.body.deadline,
-    done: req.body.done
-  });
+  if (!task) return res.status(404).send('The task with the given ID was not found.');
   
-  if(!task) return res.status(404).send("Task with the given ID was not found.");
-
   res.send(task);
 });
 

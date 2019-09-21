@@ -1,4 +1,5 @@
 const Joi = require('joi');
+Joi.objectId = require('joi-objectid')(Joi);
 const mongoose = require('mongoose');
 
 const TaskSchema = new mongoose.Schema({
@@ -43,7 +44,18 @@ function validateTask(task) {
   
     return Joi.validate(task, schema);
 }
+
+function validateTaskUpdate(list) {
+    const schema = {
+      name: Joi.string().min(1).max(100),
+      list: Joi.objectId(),
+      deadline: Joi.date(),
+      done: Joi.boolean()
+    };
   
+    return Joi.validate(list, schema);
+}
   
 module.exports.validate = validateTask;
 module.exports.Task = mongoose.model("Task", TaskSchema);
+module.exports.validateTaskUpdate = validateTaskUpdate;
