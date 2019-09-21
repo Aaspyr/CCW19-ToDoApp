@@ -1,3 +1,6 @@
+import "./scss/main.scss"
+import axios from 'axios'
+
 const startForm = document.getElementsByClassName('startBox')
 const logForm = document.getElementsByClassName('logBox')
 const registerForm = document.getElementsByClassName('registerBox')
@@ -20,3 +23,23 @@ registerButton.onclick = function () {
             startForm[i].style.display = "none";
     }
 }
+
+let nameField = document.getElementById('userName');
+let passwordField = document.getElementById('password');
+const URL = 'http://localhost:3000/api';
+
+document.getElementById('submitLogin').addEventListener("click", async (e) => {
+    e.preventDefault();
+    const myData = {
+        'email': nameField.value,
+        'password': passwordField.value
+    }
+    try{
+        const loginUser = await axios.post(`${URL}/auth`, myData)
+        console.log(loginUser)
+    }catch(err){
+        console.dir(err.request.response)
+    }
+});
+
+

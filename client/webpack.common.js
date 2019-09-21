@@ -1,5 +1,8 @@
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    app: './src/index.js',
+    login: './src/startPageHandelers.js'
+  },
   module: {
     rules: [
       {

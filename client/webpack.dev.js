@@ -26,10 +26,12 @@ module.exports = merge(common, {
     new HtmlWebpackPlugin({
       filename: './index.html',
       template: './src/index.html',
+      chunks: ['login']
     }),
     new HtmlWebpackPlugin({
-      filename: './login.html',
-      template: './src/login.html',
+      filename: './dashboard.html',
+      template: './src/dashboard.html',
+      chunks: ['app']
     })
   ]
 });
