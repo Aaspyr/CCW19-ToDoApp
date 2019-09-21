@@ -58,8 +58,9 @@ let id2 = '5d85ad3c7d30410b4a4808dc';
 let id3 = '5d8263c6d88e2138505385cd';
 
 //adding new list//
+const addButton = document.querySelector('navbar__createNewListButton');
 const confirmButton = document.querySelector('.navbar__button');
-const listDom = document.querySelector('.navbar__element>a');
+const listNameInput = document.querySelector('addNewListWindow__form--input')
 
 const listDzis = document.getElementById('dzis');
 const listSzkola = document.getElementById('szkola');
