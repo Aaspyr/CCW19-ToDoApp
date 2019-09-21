@@ -50,7 +50,7 @@ import {addTaskToDone} from './js/task-done';
 //     console.log(error)
 //     })
 // })
-=======
+
 const URL = 'http://localhost:3000/api';
 
 let id1 = '5d82b4527f81363ec8162055';
@@ -58,9 +58,8 @@ let id2 = '5d85ad3c7d30410b4a4808dc';
 let id3 = '5d8263c6d88e2138505385cd';
 
 //adding new list//
-const addButton = document.querySelector('navbar__createNewListButton');
 const confirmButton = document.querySelector('.navbar__button');
-const listNameInput = document.querySelector('addNewListWindow__form--input')
+const listDom = document.querySelector('.navbar__element>a');
 
 const listDzis = document.getElementById('dzis');
 const listSzkola = document.getElementById('szkola');
@@ -137,7 +136,7 @@ const createLiList = item => {
     const btn1 = document.createElement('button');
     const btn2 = document.createElement('button');
 
-    btn1.classList.add('undoneContainer__taskList--edit');
+    btn1.classList.add('undoneContainer__taskList--edit', 'edit-list');
     btn2.classList.add('undoneContainer__taskList--delete');
     btn1.innerHTML ='<img src="src/img/edit.svg" alt="">';
     btn2.innerHTML ='<img delete="true" src="src/img/garbage.svg" alt="">';
@@ -146,6 +145,7 @@ const createLiList = item => {
     p3.appendChild(document.createTextNode(item.tasks));
     p2.appendChild(document.createTextNode(item.userId.name));
 
+    li.id = item._id;
     li.appendChild(p1);
     li.appendChild(p3);
     li.appendChild(p2);
@@ -176,6 +176,13 @@ const addListsToDOM = lists => {
     } else if (lists) {
         ul.appendChild(createLiList(lists));
     }
+
+    document.querySelectorAll('.edit-list').forEach(btn => btn.addEventListener('click', async (e) => {
+        const listId = e.currentTarget.parentNode.id;
+        const edit = await axios.put(`${URL}/lists/${listId}`, {name: "nowa nazwa"}); 
+        console.log(edit)
+    }));
+    
 };
 
 const mainList = async () => {
@@ -249,3 +256,4 @@ const mainTask = async () => {
 };
 
 //mainTask ();
+

@@ -29,6 +29,18 @@ function validateList(list) {
   
     return Joi.validate(list, schema);
 }
+
+function validateListUpdate(list) {
+    const schema = {
+      name: Joi.string().min(1).max(100),
+      color: Joi.string().min(1).max(100),
+      createdAt: Joi.date(),
+      tasks: Joi.array().items(Joi.object())
+    };
+  
+    return Joi.validate(list, schema);
+}
   
 module.exports.validate = validateList;
 module.exports.List = mongoose.model("List", ListSchema);
+module.exports.validateListUpdate = validateListUpdate;
