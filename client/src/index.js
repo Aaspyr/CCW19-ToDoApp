@@ -4,16 +4,36 @@ import {addTaskToDone} from './js/task-done';
 
 const URL = 'http://localhost:3000/api';
 
+let id1 = '5d82b4527f81363ec8162055';
+let id2 = '5d85ad3c7d30410b4a4808dc';
+let id3 = '5d8263c6d88e2138505385cd';
+
 //adding new list//
 const addButton = document.querySelector('navbar__createNewListButton');
 const confirmButton = document.querySelector('.navbar__button');
 const listNameInput = document.querySelector('addNewListWindow__form--input')
-const listDom = document.querySelector('.navbar__element>a');
 
+const listDzis = document.getElementById('dzis');
+const listSzkola = document.getElementById('szkola');
+const listPraca = document.getElementById('praca');
+const listDom = document.getElementById('dom');
+const listTaski = document.getElementById('taski');
+
+listDzis.addEventListener('click', async() => {
+    addListsToDOM(await getTasks(id1))
+})
+listPraca.addEventListener('click', async() => {
+    addListsToDOM(await getTasks(id2))
+})
+listSzkola.addEventListener('click', async() => {
+    addListsToDOM(await getTasks(id3))
+})
 listDom.addEventListener('click', async () => {
-    addListsToDOM(await getLists())})
+    addListsToDOM(await mainList(''))})
+listTaski.addEventListener('click', async () => {
+    addListsToDOM(await getTasks(''))})
 
-console.log(confirmButton)
+//console.log(confirmButton)
 
 //addButton.addEventListener('click', funkcja pokazująca ramkę z dodawaniem listy);
 
@@ -56,7 +76,7 @@ const getLists = async () => {
         console.error(e);
     }
 };
-console.log(getLists());
+//console.log('listy'+ getLists());
 
 //showing lists
 const createLiList = item => {
@@ -120,9 +140,9 @@ const mainList = async () => {
 //mainList ();
 
 //getting tasks
-const getTasks = async () => {
+const getTasks = async (id) => {
     try {
-        const id = '';
+        //const id = '';
         const res = await axios.get(`${URL}/tasks/${id}`);
         const tasks = res.data;
         return tasks;
