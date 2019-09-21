@@ -208,3 +208,16 @@ const mainTask = async () => {
     }
     await deleteList(id);
   };
+
+//delete tasks
+const deleteTasks = async (e, li) => {
+    if (e.target.closest('.doneContainer__taskList--bin') !== null) {
+        const taskId = e.target.closest('.doneContainer__taskList--element').parentElement.removeChild(li);
+        await axios.delete(`${URL}/tasks/${taskId}`);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const doneTasks = document.querySelector(".doneContainer__taskList");
+    doneTasks.addEventListener('click', deleteTasks);
+});
