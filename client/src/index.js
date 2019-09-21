@@ -1,5 +1,6 @@
 import "./scss/main.scss"
 import axios from 'axios'
+import {addTaskToDone} from './js/task-done';
 
 const URL = 'http://localhost:3000/api';
 
