@@ -118,9 +118,9 @@ const createLiList = item => {
     const btn2 = document.createElement('button');
 
     btn1.classList.add('undoneContainer__taskList--edit');
-    btn2.classList.add('undoneContainer__taskList--done');
-    btn1.innerHTML ='<img src=imgs/edit.bec0d15fb6523885ea4206789406f447.svg alt="">';
-    btn2.innerHTML ='<img src=imgs/garbage.e18b49a6a5015b0dea867f6a130f5848.svg alt="">';
+    btn2.classList.add('undoneContainer__taskList--delete');
+    btn1.innerHTML ='<img src="src/img/edit.svg" alt="">';
+    btn2.innerHTML ='<img delete="true" src="src/img/garbage.svg" alt="">';
     
     p1.appendChild(document.createTextNode(item.name));
     p3.appendChild(document.createTextNode(item.tasks));
@@ -187,8 +187,8 @@ const createLi = item => {
 
     btn1.classList.add('undoneContainer__taskList--edit');
     btn2.classList.add('undoneContainer__taskList--done');
-    btn1.innerHTML ='<img src=imgs/edit.bec0d15fb6523885ea4206789406f447.svg alt="">';
-    btn2.innerHTML ='<img src=imgs/tick.905c9223597a4a23b316cc4fb6719763.svg alt="">';
+    btn1.innerHTML ='<img src="src/img/edit.svg" alt="">';
+    btn2.innerHTML ='<img src="src/img/tick.svg" alt="">';
     
     p1.appendChild(document.createTextNode(item.name));
     p2.appendChild(document.createTextNode(item.done));
