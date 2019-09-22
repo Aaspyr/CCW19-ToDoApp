@@ -12,10 +12,10 @@
         <div>
         
             <div>
-                <h2 style="text-align: center; word-spacing: 8px;">DOKUMENTACJA API</h2
+                <h2 style="text-align: center; word-spacing: 8px;">DOKUMENTACJA API</h2>
             </div>
             
-            </br>
+            </h2>
            
             <div>
                 <p>
@@ -26,12 +26,15 @@
             
                 <p>
                     <h2>uwierzytelnianie</h2>
-                    klucz dostępu do API można wygenerować po zalogowaniu do aplikacji WWW korzystając z ustawień konta. klucz powinien być przekazywany za pomocą nagłówka HTTP x-todo-apikey.
+                    klucz dostępu do API można wygenerować za pomocą JsonWebToken. klucz powinien być przekazywany za pomocą nagłówka HTTP <span style="font-size: 20px;font-weight: 700;">x-auth-token</span>.
                 </p> </br>
              
-                <p>
-                    <h2>wyszukiwanie</h2>
-                    w jaki sposób się odbywa?
+            
+                    <h2>requesty</h2>
+                    <span style=font-size:20px;font-weight:700;>GET</span> ---> http://localhost:3000/api/ -----> pobieranie listy tasków </br>
+                    <span style=font-size:20px;font-weight:700;>POST</span> ---> http://localhost:3000/api/ -----> dodawanie tasków </br>
+                    <span style=font-size:20px;font-weight:700;>PUT</span> ---> http://localhost:3000/api/:id -----> aktualizacja tasków </br>
+                    <span style=font-size:20px;font-weight:700;>DELETE</span> ---> http://localhost:3000/api/:id -----> usuwanie tasków </br>
                 </p> </br>
                 
                 <p>
@@ -40,7 +43,8 @@
                     <span style=font-size:20px;font-weight:700;>400</span> ---> Bad Request -----> któryś z parametrów przyjął nieprawidlową wartość </br>
                     <span style=font-size:20px;font-weight:700;>401</span> ---> Unauthorized -----> brak autoryzacji lub uprawnień do danego zasobu </br>
                     <span style=font-size:20px;font-weight:700;>403</span> ---> Forbidden -----> brak uprawnień do danej akcji </br>
-                    <span style=font-size:20px;font-weight:700;>404</span> ---> Not Found -----> zasób nie został odnaleziony 
+                    <span style=font-size:20px;font-weight:700;>404</span> ---> Not Found -----> zasób nie został odnaleziony </br>
+                    <span style=font-size:20px;font-weight:700;>500</span> ---> Internal Server Error -----> serwer napotkał niespodziewane trudności które uniemożliwiły zrealizowanie żądania 
                 </p> </br>
 
         
