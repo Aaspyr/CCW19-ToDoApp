@@ -22,7 +22,7 @@ import {addTaskToDone} from './js/task-done';
 
 const addsButton = document.getElementById('addList');
 const confirmsButton = document.querySelector('.addNewListWindow__form--confirmButton');
-const listNamesInput = document.querySelector('addNewListWindow__form--input')
+const listNamesInput = document.querySelector('.addNewListWindow__form--input')
 const addNewList = document.getElementsByClassName('addNewListWindow')
 const newListBackground = document.getElementsByClassName('newListBackground');
 
@@ -33,17 +33,19 @@ addsButton.onclick = function() {
         
     }
 };
-const URL = 'https://todocc2019.herokuapp.com/';
+const URL = 'http://localhost:3000/api';
 
 confirmsButton.addEventListener('click',function(e) {
     e.preventDefault();
-    console.log("hello");
+    for (let i =0; i<addNewList.length; i+=1){
+        addNewList[i].style.display = "none";
+        newListBackground[0].style.display="none";
+        
+    }
     axios.post(`${URL}/lists`, {
         userId: '5d812cd6a5780025687b385d',
-        name: 'listtt',
-        createdAt: new Date(),
-        color: '',
-        tasks: []
+        name: listNamesInput.value,
+        createdAt: new Date().now
     })
     .then(function (response) {
     console.log(response)
