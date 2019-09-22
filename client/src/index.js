@@ -33,13 +33,13 @@ addsButton.onclick = function() {
         
     }
 };
-const URL = 'http://localhost:3000/api';
+const URL = 'https://todocc2019.herokuapp.com/';
 
 confirmsButton.addEventListener('click',function(e) {
     e.preventDefault();
     console.log("hello");
     axios.post(`${URL}/lists`, {
-        userID: '5d812cd6a5780025687b385d',
+        userId: '5d812cd6a5780025687b385d',
         name: 'listtt',
         createdAt: new Date(),
         color: '',
