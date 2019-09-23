@@ -26,14 +26,17 @@ const listNamesInput = document.querySelector('.addNewListWindow__form--input')
 const addNewList = document.getElementsByClassName('addNewListWindow')
 const newListBackground = document.getElementsByClassName('newListBackground');
 
+
+
 addsButton.onclick = function() {
     for (let i =0; i<addNewList.length; i+=1){
         addNewList[i].style.display = "block";
         newListBackground[0].style.background = 'rgba(255,255,255, 0.5)';
-        
+        newListBackground[0].style.zIndex = 1;
+
     }
 };
-const URL = 'http://localhost:3000/api';
+const URL = 'https://todocc2019.herokuapp.com/api';
 
 confirmsButton.addEventListener('click',function(e) {
     e.preventDefault();
@@ -54,7 +57,16 @@ confirmsButton.addEventListener('click',function(e) {
     console.log(error.response)
     })
 })
+//-------------------------------------------------------------------------------------------------------------------------
+//Dodawanie Taska
 
+const addTask = document.querySelector('.main__list--addTask');
+const addTaskWindow = document.querySelector('.addNewTaskWindow');
+
+addTask.onclick = function() {
+    addTaskWindow.style.display="block";
+    console.log(addTaskWindow);
+}
 
 // let id1 = '5d82b4527f81363ec8162055';
 // let id2 = '5d85ad3c7d30410b4a4808dc';
