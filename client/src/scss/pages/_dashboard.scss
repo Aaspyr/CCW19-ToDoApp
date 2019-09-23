@@ -50,6 +50,7 @@
         background-color: transparent;
         border: none;
     }
+
     &__element{
         position: relative;
         padding: 0 5rem;
@@ -90,42 +91,37 @@
 
 .Main{
     display: flex;
+    width: 100vw;
     flex:1;
     height: calc(100% - 20rem);
 }
 .undoneContainer{
-    flex: 3;
-    min-width: 68rem;
+    width: 70%;
 }
 
 .undoneContainer__taskList{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    &__element{
+        list-style: none;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-content: flex-start;
+    }
 }
 
-.doneCointainer{
-    flex: 1;
+.doneContainer{
+    width: 30vW;
+    height: 100%;
     border: 2px solid $color-primary;
-    height: 100%;
-    margin-top: -2px;
-}
-
-
-[class$="__taskList"] {
-    list-style: none;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: flex-start;
 }
 
 [class$="__taskList--element"] {
     background-color: $color-light;
     margin: 2rem;
-    width: 30rem;
     color: $color-white;
-    height: 20rem;
     padding: 1rem;
 }
 
