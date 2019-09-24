@@ -73,6 +73,10 @@
         }
 
     }
+    &__element:hover{
+        text-shadow: 3px 3px 5px  pink;
+        color: #6D55FF;
+    }
     .active{
         background-color: $color-primary;
         color: $color-pink;
@@ -129,4 +133,11 @@
     background-color: transparent;
     text-align: center;
     align-items: center;
+}
+
+.undoneContainer__taskList--edit>img:hover{
+    background: pink; 
+}
+.undoneContainer__taskList--delete>img:hover{
+    background: pink; 
 }
