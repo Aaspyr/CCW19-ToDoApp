@@ -10,7 +10,8 @@ app.use(cors());
 require('./routes/routes')(app);
 
 mongoose.connect(config.db, {
-    useNewUrlParser: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 });
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
