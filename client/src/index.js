@@ -59,15 +59,16 @@ addsButton.onclick = function() {
 };
 
 
-confirmsButton.addEventListener('click',function(e) {
+confirmsButton.addEventListener('click', async function(e) {
     e.preventDefault();
     for (let i =0; i<addNewList.length; i+=1){
         addNewList[i].style.display = "none";
         newListBackground[0].style.display="none";
         
     }
+    const user = await getUser();
     axios.post(`${URL}/lists`, {
-        userId: '5d812cd6a5780025687b385d',
+        userId: user._id,
         name: listNamesInput.value,
         createdAt: new Date().now
     })
@@ -78,6 +79,34 @@ confirmsButton.addEventListener('click',function(e) {
     console.log(error.response)
     })
 })
+//------------------------------------------------------------------------------------------------------------------------
+//Pobieranie list zalogowanego uzytkownika
+const getUsersLists = async () => {
+    const user = await getUser();
+    try {
+        const response = await axios.get(`${URL}/lists/${user._id}`);
+        return response.data;
+    }catch(error) {
+        console.error(error);
+      }
+}
+
+//-------------------------------------------------------------------------------------------------------------------------
+//Dodanie list zalogowanego użytkownika do okienka dodawania taska
+const addTaskSelectListMenu  = document.querySelector('.addNewTaskWindow__form--select');
+
+const addListToSelectMenu = async () => {
+    const usersList = await getUsersLists();
+    usersList.map((list) => {   
+        const newOption = document.createElement("option");
+        newOption.setAttribute("value", `${list._id}`);
+        newOption.innerText = `${list.name}`;
+        addTaskSelectListMenu.appendChild(newOption);
+    });
+};
+
+addListToSelectMenu();
+
 //-------------------------------------------------------------------------------------------------------------------------
 //Dodawanie Taska
 
@@ -92,16 +121,16 @@ addTask.onclick = function() {
     addTaskWindow.style.display="block";
 }
 
-addTaskConfirmationButton.onclick = function(e) {
+addTaskConfirmationButton.onclick = async function(e) {
     e.preventDefault();
-
+    const user = await getUser();
     addTaskWindow.style.display="none";
 
     axios.post(`${URL}/tasks`,{
         createdAt: new Date().now,
-        userId: '5d8263c6d88e2138505385cd',
+        userId: user._id,
         name: addTaskInput.value,
-        list: '5d8265f7c4299a34709b3477',
+        list: addTaskSelectListMenu.value,
         deadline: addTaskDeadlineDate.value
     })
     .then((response) => {console.log(response)})
