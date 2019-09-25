@@ -2,6 +2,13 @@ import "./scss/main.scss"
 import axios from 'axios'
 import {addTaskToDone} from './js/task-done';
 
+const jwtDecode = require('jwt-decode');
+const token = localStorage.getItem("token");
+const decodedToken = jwtDecode(token);
+const userId = decodedToken._id;
+console.log(userId);
+
+
 //----------------------------------------------------------------------------------------------------------------
 //DODAWANIE NOWEJ LISTY
 
@@ -50,6 +57,7 @@ const addTaskWindow = document.querySelector('.addNewTaskWindow');
 const addTaskConfirmationButton = document.querySelector('.addNewTaskWindow__form--confirmButton');
 const addTaskInput = document.querySelector('.addNewTaskWindow__form--input');
 const addTaskDeadlineDate = document.querySelector('.addNewTaskWindow__form--inputDate');
+
 
 addTask.onclick = function() {
     addTaskWindow.style.display="block";
