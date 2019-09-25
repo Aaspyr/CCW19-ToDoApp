@@ -3,10 +3,39 @@ import axios from 'axios'
 import {addTaskToDone} from './js/task-done';
 
 const jwtDecode = require('jwt-decode');
-const token = localStorage.getItem("token");
-const decodedToken = jwtDecode(token);
-const userId = decodedToken._id;
-console.log(userId);
+
+//----------------------------------------------------------------------------------------------------------------
+//Pobieranie ID Usera z tokena
+const getUserId = () => {
+    const token = localStorage.getItem("token");
+    const decodedToken = jwtDecode(token);
+    return decodedToken._id;
+}
+
+//---------------------------------------------------------------------------------------------------------------
+//Pobieranie obiektu zalogowanego Usera
+
+const URL = 'https://todocc2019.herokuapp.com/api';
+
+const userId = getUserId();
+
+async function getUser() {
+    try {
+      const response = await axios.get(`${URL}/users/${userId}`);
+      return response.data;
+    } catch (error) {
+      console.error(error);
+    }
+};
+
+async function showWelcomeUser(){
+    const welcomeUser = document.querySelector('.heading__welcome');
+    const user = await getUser();
+    welcomeUser.innerText = `CZEŚĆ ${user.name}!`;
+};
+
+showWelcomeUser();
+
 
 
 //----------------------------------------------------------------------------------------------------------------
@@ -28,7 +57,7 @@ addsButton.onclick = function() {
 
     }
 };
-const URL = 'https://todocc2019.herokuapp.com/api';
+
 
 confirmsButton.addEventListener('click',function(e) {
     e.preventDefault();
