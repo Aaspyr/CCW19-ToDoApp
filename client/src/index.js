@@ -47,10 +47,28 @@ confirmsButton.addEventListener('click',function(e) {
 
 const addTask = document.querySelector('.main__list--addTask');
 const addTaskWindow = document.querySelector('.addNewTaskWindow');
+const addTaskConfirmationButton = document.querySelector('.addNewTaskWindow__form--confirmButton');
+const addTaskInput = document.querySelector('.addNewTaskWindow__form--input');
+const addTaskDeadlineDate = document.querySelector('.addNewTaskWindow__form--inputDate');
 
 addTask.onclick = function() {
     addTaskWindow.style.display="block";
-    console.log(addTaskWindow);
+}
+
+addTaskConfirmationButton.onclick = function(e) {
+    e.preventDefault();
+
+    addTaskWindow.style.display="none";
+
+    axios.post(`${URL}/tasks`,{
+        createdAt: new Date().now,
+        userId: '5d8263c6d88e2138505385cd',
+        name: addTaskInput.value,
+        list: '5d8265f7c4299a34709b3477',
+        deadline: addTaskDeadlineDate.value
+    })
+    .then((response) => {console.log(response)})
+    .catch((error) => {error.response})
 }
 
  let id1 = '5d82b4527f81363ec8162055';

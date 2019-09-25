@@ -1,6 +1,8 @@
 import "./scss/main.scss"
 import axios from 'axios'
 
+const jwtDecode = require('jwt-decode');
+
 const startForm = document.getElementsByClassName('startBox')
 const logForm = document.getElementsByClassName('logBox')
 const registerForm = document.getElementsByClassName('registerBox')
@@ -26,7 +28,7 @@ registerButton.onclick = function () {
 
 let nameField = document.getElementById('userName');
 let passwordField = document.getElementById('password');
-const URL = 'http://localhost:3000/api';
+const URL = 'https://todocc2019.herokuapp.com/api';
 
 document.getElementById('submitLogin').addEventListener("click", async (e) => {
     e.preventDefault();
@@ -36,7 +38,8 @@ document.getElementById('submitLogin').addEventListener("click", async (e) => {
     }
     try{
         const loginUser = await axios.post(`${URL}/auth`, myData)
-        console.log(loginUser)
+        console.log(jwtDecode(loginUser.data));
+
     }catch(err){
         console.dir(err.request.response)
     }

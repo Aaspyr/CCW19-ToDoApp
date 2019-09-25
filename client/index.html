@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-Ua-Compatible" content="IE=edge,chrome=1" />
+
+  <title>What To Do?</title>
+  <meta name="description" content="" />
+  <meta name="keywords" content="list, todo, organisation, timetable" />
+
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet"> />
+</head>
+
+<body>
+  
+  <div class="heading">
+    <img class="heading__logo" src="#" alt="logo">
+    <div class="heading__name"></div>
+    <div class="heading__welcome"></div>
+    <div class="heading__welcome"></div>
+    <button class="heading__logOut"></button>
+  </div>
+
+  <div class="navbar">
+    <div class="navbar__element">dziś</div>
+    <div class="navbar__element">szkoła<button class="navbar__element--bin"><img src="#" alt=""></button></div>
+    <div class="navbar__element">praca<button class="navbar__element--bin"><img src="#" alt=""></button></div>
+    <div class="navbar__element">dom<button class="navbar__element--bin"><img src="#" alt=""></button></div>
+    <button class="navbar__button">+</button>
+  </div>
+
+  <div class="Main">
+
+    <div class="undoneContainer">
+
+      <div class="undoneContainer__listHeader">Do zrobienia</div>
+
+      <ul class="undoneContainer__taskList">
+
+        <li class="undoneContainer__taskList--element">
+          <p class="undoneContainer__taskList--element title">Title of task</p>
+          <p class="undonelistContainer__taskList--element info">data</p>
+          <button class="undoneContainer__taskList--edit"><img src="#" alt=""></button>
+          <button class="undoneContainer__taskList--done"><img src="#" alt=""></button>
+        </li>
+
+        <li class="undoneContainer__taskList--element">
+          <p class="undoneContainer__taskList--element title">Title of task</p>
+          <p class="undoneContainer__taskList--element info">data</p>
+          <button class="undoneContainer__taskList--edit"><img src="#" alt=""></button>
+          <button class="undoneContainer__taskList--done"><img src="#" alt=""></button>
+        </li>
+      </ul>
+      <button class="main__list--addTask"></button>
+    </div>
+
+    <div class="doneCointainer">
+      <div class="doneCointainer__header">Co już zrobiłeś</div>
+
+      <ul class="doneContainer__taskList">
+  
+        <li class="doneContainer__taskList--element">
+          <p class="doneContainer__taskList--element title">Title of task</p>
+          <p class="doneContainer__taskList--element info">data</p>
+          <button class="doneContainer__taskList--bin"><img src="#" alt=""></button>
+        </li>
+  
+        <li class="doneContainer__taskList--element">
+          <p class="doneContainer__taskList--element title">Title of task</p>
+          <p class="doneContainer__taskList--element info">data</p>
+          <button class="doneContainer__taskList--bin"><img src="#" alt=""></button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
