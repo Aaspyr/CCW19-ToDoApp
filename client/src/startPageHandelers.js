@@ -39,6 +39,7 @@ document.getElementById('submitLogin').addEventListener("click", async (e) => {
     try{
         const loginUser = await axios.post(`${URL}/auth`, myData)
         localStorage.setItem("token", loginUser.data);
+        window.location.replace('dashboard.html');
 
     }catch(err){
         console.dir(err.request.response)
